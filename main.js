@@ -52,6 +52,16 @@ thick.onclick = function () {
     thick.classList.add('active')
 }
 
+downLoad.onclick = function () {
+    var url = canvas.toDataURL('image/png')
+    var a = document.createElement('a')
+    document.body.appendChild(a)
+    a.href = url
+    a.download = 'myPicture'
+    a.target = '_blank'
+    a.click()
+}
+
 var eraserEnabled = false
 eraser.onclick = function() {
     eraserEnabled = true
