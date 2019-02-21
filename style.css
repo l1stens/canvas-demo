@@ -1,5 +1,9 @@
 #canvas {
     display: block;
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 ul,ol {
     list-style: none;
@@ -19,7 +23,7 @@ ul,ol {
 }
 
 body {
-    margin: 0px;
+    margin: 0;
     overflow: hidden;
 }
 
