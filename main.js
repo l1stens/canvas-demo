@@ -1,20 +1,54 @@
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
+var lineWidth = 5
 
 autoSetCanvasSize(canvas)
 
 listenToUser(canvas)
 
+red.onclick = function () {
+    context.strokeStyle = 'red'
+    red.classList.add('active')
+    green.classList.remove('active')
+    blue.classList.remove('active')
+    black.classList.remove('active')
+}
+blue.onclick = function () {
+    context.strokeStyle = 'blue'
+    red.classList.remove('active')
+    green.classList.remove('active')
+    blue.classList.add('active')
+    black.classList.remove('active')
+}
+green.onclick = function () {
+    context.strokeStyle = 'green'
+    red.classList.remove('active')
+    green.classList.add('active')
+    blue.classList.remove('active')
+    black.classList.remove('active')
+}
+black.onclick = function () {
+    context.strokeStyle = 'black'
+    red.classList.remove('active')
+    green.classList.remove('active')
+    blue.classList.remove('active')
+    black.classList.add('active')
+}
+
+clear.onclick = function () {
+    context.clearRect(0, 0, canvas.width, canvas.height)
+}
 
 var eraserEnabled = false
 eraser.onclick = function() {
-    eraserEnabled =true
-    actions.className = 'actions x'
-
+    eraserEnabled = true
+    brush.classList.remove('active')
+    eraser.classList.add('active')
 }
 brush.onclick = function(){
     eraserEnabled = false
-    actions.className = 'actions'
+    eraser.classList.remove('active')
+    brush.classList.add('active')
 }
 
 
@@ -45,9 +79,8 @@ function drawCircle(x, y, radius) {
 
 function drawLine(x1, y1, x2, y2) {
     context.beginPath();
-    context.strokeStyle = 'black'
     context.moveTo(x1, y1) // 起点
-    context.lineWidth = 5
+    context.lineWidth = lineWidth
     context.lineTo(x2, y2) // 终点
     context.stroke()
     context.closePath()
