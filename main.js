@@ -1,6 +1,6 @@
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
-var lineWidth = 5
+var lineWidth = 6
 
 autoSetCanvasSize(canvas)
 
@@ -37,6 +37,19 @@ black.onclick = function () {
 
 clear.onclick = function () {
     context.clearRect(0, 0, canvas.width, canvas.height)
+}
+
+thin.onclick = function () {
+    lineWidth = 3
+    thin.classList.add('active')
+    thick.classList.remove('active')
+
+}
+
+thick.onclick = function () {
+    lineWidth = 6
+    thin.classList.remove('active')
+    thick.classList.add('active')
 }
 
 var eraserEnabled = false
